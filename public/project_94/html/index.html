@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="../css/index.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+   
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/timepicker/1.3.5/jquery.timepicker.min.css">
+    <title>Home</title>
+</head>
+<body>
+        <div class="overlay-navigation">
+                <nav role="navigation">
+                  <ul>
+                    <li><a href="#" data-content="The beginning">Home</a></li>
+                    <li><a href="#" data-content="welcome">Login</a></li>
+                    <li><a href="index.html" data-content="lets go together">Register</a></li>
+                    <li><a href="#" data-content="What's on your mind?">About</a></li>
+                    <li><a href="#" data-content="Don't hesitate">Contact</a></li>
+                  </ul>
+                </nav>
+              </div>
+              
+              <section class="home">
+                <div class="search-box">
+                   <form action="">
+                   <label for="course-level" class="search-text"> Course Level</label>
+                   <select name="course-level" id="course-level" class="select">
+                     <option disabled selected="selected">Select</option>
+                     <option value="SEE">SEE</option>
+                     <option value="+12">+12</option>
+                     <option value="Bachelors">Bachelors</option>
+                     <option value="Masters">Masters</option>
+                     |
+                   </select>
+                   
+                   <input type="text" placeholder="Please enter your Course" class="search-course">
+                   <span class="underline"></span> 
+                   <input type="text" placeholder="Please enter your Location" class="search-course"> 
+                   <span class="underline"></span>
+                  
+                   <label for="date" id="date">Date</label>
+                   
+                   <input type="datetime" id="example" placeholder="00:00" class="search-date"  />
+                  
+                   <span class="fa fa-search" id="search"></span>
+                   <script src="//cdnjs.cloudflare.com/ajax/libs/timepicker/1.3.5/jquery.timepicker.min.js"></script>
+                    <script>
+                   $(function(){
+   $('#example').timepicker(); 
+});
+                    </script>
+
+                   </form>
+                   
+                  
+                  
+                </div>
+                <div class="open-overlay">
+                  <span class="bar-top"></span>
+                  <span class="bar-middle"></span>
+                  <span class="bar-bottom"></span>
+                </div>
+                
+                
+              </section>
+            
+        <section id="coureses">
+
+        </section>
+<script>
+$('.open-overlay').click(function() {
+  var overlay_navigation = $('.overlay-navigation'),
+    nav_item_1 = $('nav li:nth-of-type(1)'),
+    nav_item_2 = $('nav li:nth-of-type(2)'),
+    nav_item_3 = $('nav li:nth-of-type(3)'),
+    nav_item_4 = $('nav li:nth-of-type(4)'),
+    nav_item_5 = $('nav li:nth-of-type(5)'),
+    top_bar = $('.bar-top'),
+    middle_bar = $('.bar-middle'),
+    bottom_bar = $('.bar-bottom');
+
+  overlay_navigation.toggleClass('overlay-active');
+  if (overlay_navigation.hasClass('overlay-active')) {
+
+    top_bar.removeClass('animate-out-top-bar').addClass('animate-top-bar');
+    middle_bar.removeClass('animate-out-middle-bar').addClass('animate-middle-bar');
+    bottom_bar.removeClass('animate-out-bottom-bar').addClass('animate-bottom-bar');
+    overlay_navigation.removeClass('overlay-slide-up').addClass('overlay-slide-down')
+    nav_item_1.removeClass('slide-in-nav-item-reverse').addClass('slide-in-nav-item');
+    nav_item_2.removeClass('slide-in-nav-item-delay-1-reverse').addClass('slide-in-nav-item-delay-1');
+    nav_item_3.removeClass('slide-in-nav-item-delay-2-reverse').addClass('slide-in-nav-item-delay-2');
+    nav_item_4.removeClass('slide-in-nav-item-delay-3-reverse').addClass('slide-in-nav-item-delay-3');
+    nav_item_5.removeClass('slide-in-nav-item-delay-4-reverse').addClass('slide-in-nav-item-delay-4');
+  } else {
+    top_bar.removeClass('animate-top-bar').addClass('animate-out-top-bar');
+    middle_bar.removeClass('animate-middle-bar').addClass('animate-out-middle-bar');
+    bottom_bar.removeClass('animate-bottom-bar').addClass('animate-out-bottom-bar');
+    overlay_navigation.removeClass('overlay-slide-down').addClass('overlay-slide-up')
+    nav_item_1.removeClass('slide-in-nav-item').addClass('slide-in-nav-item-reverse');
+    nav_item_2.removeClass('slide-in-nav-item-delay-1').addClass('slide-in-nav-item-delay-1-reverse');
+    nav_item_3.removeClass('slide-in-nav-item-delay-2').addClass('slide-in-nav-item-delay-2-reverse');
+    nav_item_4.removeClass('slide-in-nav-item-delay-3').addClass('slide-in-nav-item-delay-3-reverse');
+    nav_item_5.removeClass('slide-in-nav-item-delay-4').addClass('slide-in-nav-item-delay-4-reverse');
+  }
+})
+</script>
+    
+
+
+ 
+
+</body>
+</html>
