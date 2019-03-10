@@ -56,8 +56,8 @@ class LoginController extends Controller
     {
         if(\Request::is('admin/login')){
             return view('admin.auth.login');
-        }elseif(\Request::is('project_94/login')){
-            return view('project_94/auth/login');
+        }elseif(\Request::is('project_94/teacher/register')){
+            return view('project_94/auth/teacher-register');
         }else{
             return false;
         }

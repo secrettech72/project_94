@@ -30,7 +30,6 @@ class UserController extends Controller
         $panel = 'User';
         User::create([
             'email' => $request->email,
-            'username' => $request->username,
             'password' =>bcrypt($request->password),
             'first_name' => $request->first_name,
             'profile_images' => isset($file_name) ? $file_name : '',
@@ -72,7 +71,6 @@ class UserController extends Controller
         $data->update(
             [
             'email' => $request->email,
-            'username' => $request->username,
             'password' =>isset($request->password) ? bcrypt($request->password): $data->password,
             'first_name' => $request->first_name,
             'profile_images' => isset($file_name) ? $file_name : $data->profile_images,

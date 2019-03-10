@@ -7,7 +7,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Foundation\Auth\RegistersUsers;
-
+use App\Models\TeacherDetail;
 class RegisterController extends Controller
 {
     /*
@@ -28,7 +28,7 @@ class RegisterController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = '/home';
+    protected $redirectTo = 'project_94/teacher/dashboard';
 
     /**
      * Create a new controller instance.
@@ -49,9 +49,7 @@ class RegisterController extends Controller
     protected function validator(array $data)
     {
         return Validator::make($data, [
-            'name' => 'required|string|max:255',
-            'email' => 'required|string|email|max:255|unique:users',
-            'password' => 'required|string|min:6|confirmed',
+            'email' => 'required|string|max:255',
         ]);
     }
 
@@ -63,10 +61,27 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
-        return User::create([
-            'name' => $data['name'],
+        $user = User::create([
+            'first_name' => $data['first_name'],
+            'last_name'=> $data['last_name'],
             'email' => $data['email'],
-            'password' => Hash::make($data['password']),
+            'role_id' => 2,
+            'password' => $data['password'],
         ]);
+
+        TeacherDetail::create([
+            'avatar' => 'uploads/teacher.png',
+           'address' => $data['address'],
+            'phone_number' => $data['phone'],
+            'qualification' => $data['qualification'],
+            'experience' => $data['experience'],
+            'facebook' => $data['facebook'],
+            'twitter' => $data['twitter'],
+            'user_id' => $user->id
+        ]);
+
+        return $user;
     }
+
+    
 }

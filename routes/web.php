@@ -14,10 +14,6 @@
 Route::get('/', function () {
     return view('welcome');
 });
-Route::get('/index',[
-    'as'=>'index',
-    'uses'=>'Admin\DashboardController@index'
-]);
 
 Route::get('admin/login',[
     'as'=>'admin.login',
@@ -28,6 +24,12 @@ Route::get('admin/login',[
 Route::get('project_94/login',[
     'as'=>'project_94.login',
     'uses'=>'Auth\LoginController@showLoginForm'
+]);
+
+
+Route::get('project_94/teacher/register', [
+    'as'=>'project_94.teacher.register',
+    'uses'=>'Auth\LoginController@showRegistrationForm'
 ]);
 
 Route::group(['prefix' => 'project_94','middleware'=>'auth'], function () {

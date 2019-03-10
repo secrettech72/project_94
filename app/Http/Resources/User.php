@@ -2,6 +2,10 @@
 
 namespace App\Http\Resources;
 
+use App\StudentDetail;
+use App\TeacherDetail;
+use App\Http\Resources\TeacherDetail as TeacherDetailResource;
+
 use Illuminate\Http\Resources\Json\JsonResource;
 
 class User extends JsonResource
@@ -14,6 +18,14 @@ class User extends JsonResource
      */
     public function toArray($request)
     {
-        return parent::toArray($request);
+        return [
+            'id' => $this->id,
+            'name' => $this->name,
+            'email' => $this->email,
+            'role_id' => $this->role_id,
+            'password' => $this->password,
+            'detail' => $this->when($this->role_id == 2,StudentDetail::find($this->id)),
+            'detail' => $this->when($this->role_id == 1, new TeacherDetailResource(User::find($this->id)->teacher_details))
+        ];
     }
 }
