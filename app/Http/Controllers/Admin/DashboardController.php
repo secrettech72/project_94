@@ -10,7 +10,7 @@ class DashboardController extends Controller
 {
    protected $base_route = 'dashboard';
    protected $panel = 'Dashboard';
-    public function index(){
+    public function index(){ //test
         $panel= 'Dashboard';
         return view('admin.index',compact([$this->panel=>'panel']));
     }
